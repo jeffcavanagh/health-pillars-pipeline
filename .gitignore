@@ -221,3 +221,7 @@ __marimo__/
 # Snowflake
 *.p8
 *.pub
+
+# Project specifics
+data/
+*.env
