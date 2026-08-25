@@ -225,3 +225,8 @@ __marimo__/
 # Project specifics
 data/
 *.env
+
+# DBT
+target/
+dbt_packages/
+logs/

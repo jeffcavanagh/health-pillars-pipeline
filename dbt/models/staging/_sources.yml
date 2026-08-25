@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: raw
+    database: HEALTH_PILLARS
+    schema: RAW
+    description: "Raw NHANES data loaded directly from source XPT files, before any transformation."
+    tables:
+      - name: DEMO_G
+        description: "NHANES 2011-2012 demographics file. One row per respondent (SEQN) providing individual, family, and household variables."
+        columns:
+          - name: SEQN
+            description: "Unique respondent sequence number. Primary key for this table and the join key across all NHANES files."
+            tests:
+              - unique
+              - not_null
+          - name: SDDSRVYR
+            description: "Survey year of the participant."
+            tests:
+              - not_null
+          - name: RIAGENDR
+            description: "Gender of the participant."
+            tests:
+              - not_null
+              - accepted_values:
+                  arguments:
+                    values: [1, 2]
+          - name: RIDAGEYR
+            description: "Respondents age in years at screening. Individuals 90 and over are topcoded at 80 years of age."
+            tests:
+              - not_null
+          - name: RIDRETH3
+            description: "Reported race and Hispanic origin information, with non-Hispanic Asian category"
+            tests:
+              - not_null
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 4, 5, 6, 7]
+          - name: INDFMIN2
+            description: "Annual family income in categorical dollar ranges. May be missing for respondents who declined to report or for whom no income estimate could be determined."
+          - name: INDFMPIR
+            description: "A ratio of family income to poverty."
+          - name: DMDFMSIZ
+            description: "Total number of people in the family."
+            tests:
+              - not_null
+
