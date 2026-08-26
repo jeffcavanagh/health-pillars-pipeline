@@ -60,7 +60,7 @@ renamed as (
             when INDFMIN2 = 15 then '$100,000 and Over'
             when INDFMIN2 = 77 then 'Refused'
             when INDFMIN2 = 99 then 'Unknown'
-            else 'Unknown'
+            else 'Missing'
         end as family_income,
 
         INDFMPIR as income_poverty_ratio,
@@ -69,7 +69,11 @@ renamed as (
             else false
         end as is_income_ratio_topcoded,
 
-        cast(DMDFMSIZ as integer) as family_size
+        cast(DMDFMSIZ as integer) as family_size,
+        case
+            when DMDFMSIZ = 7 then true
+            else false
+        end as is_family_size_topcoded
 
     from source
     
