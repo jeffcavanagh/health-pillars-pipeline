@@ -47,5 +47,861 @@ sources:
               - accepted_values:
                   arguments:
                     values: [1, 2, 3, 4, 5, 6, 7]
-            
+
+      - name: DR1TOT_G
+        description: "NHANES 2011-2012 dietary interview total nutrient intake file for day 1."
+        columns:
+          - name: SEQN
+            description: "Unique respondent sequence number. Primary key for this table and the join key across all NHANES files."
+            tests:
+              - unique
+              - not_null
+
+          - name: DR1DAY
+            description: "Intake day of the week for the dietary interview."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 4, 5, 6, 7]
+                  config:
+                    where: "DR1DAY IS NOT NULL"
+
+          - name: DR1TKCAL
+            description: "Energy in kcal."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 20000
+          
+          - name: DR1TPROT
+            description: "Protein intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500
+
+          - name: DR1TCARB
+            description: "Carbohydrate intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+
+          - name: DR1TSUGR
+            description: "Sugar intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 2000
+
+          - name: DR1TFIBE
+            description: "Dietary fiber intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+
+          - name: DR1TTFAT
+            description: "Total fat intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DR1TSFAT
+            description: "Total Saturated fat intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 400
+          
+          - name: DR1TMFAT
+            description: "Total Monounsaturated fat intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 400
+
+          - name: DR1TPFAT
+            description: "Total Polyunsaturated fat intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 300
+
+          - name: DR1TP182
+            description: "PFA 18:2 (octadecadienoic acid) intake in grams. Omega-6 fatty acid."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+
+          - name: DR1TP205
+            description: "PFA 20:5 (eicosapentaenoic acid) intake in grams. Omega-3 fatty acid, EPA."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3
+
+          - name: DR1TP226
+            description: "PFA 22:6 (docosahexaenoic acid) intake in grams. Omega-3 fatty acid, DHA."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 8
+
+          - name: DR1TCHOL
+            description: "Cholesterol intake in milligrams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+          
+          - name: DR1TATOC
+            description: "Vitamin E as alpha-tocopherol in milligrams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+          
+          - name: DR1TATOA
+            description: "Added alpha-tocopherol (Vitamin E) in milligrams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+          
+          - name: DR1TRET
+            description: "Retinol in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 40000
+
+          - name: DR1TVARA
+            description: "Vitamin A as retinol activity equivalents (RAE) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 40000
+
+          - name: DR1TACAR
+            description: "Alpha-carotene in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100000
+
+          - name: DR1TBCAR
+            description: "Beta-carotene in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 300000
+          
+          - name: DR1TCRYP
+            description: "Beta-cryptoxanthin in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 15000
+          
+          - name: DR1TLYCO
+            description: "Lycopene in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 300000
+
+          - name: DR1TLZ
+            description: "Lutein + zeaxanthin in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200000
+
+          - name: DR1TVB1
+            description: "Thiamin (Vitamin B1) in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 20
+
+          - name: DR1TVB2
+            description: "Riboflavin (Vitamin B2) in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30
+
+          - name: DR1TNIAC
+            description: "Niacin (Vitamin B3) in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 300
+          
+          - name: DR1TVB6
+            description: "Vitamin B6 in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 40
+
+          - name: DR1TFOLA
+            description: "Total folate (Vitamin B9) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+          
+          - name: DR1TFA
+            description: "Folic acid (Vitamin B9) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 4000
+          
+          - name: DR1TFF
+            description: "Food folate (Vitamin B9) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+
+          - name: DR1TFDFE
+            description: "Dietary folate equivalent (Vitamin B9) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 6000
+          
+          - name: DR1TCHL
+            description: "Total choline in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+          
+          - name: DR1TVB12
+            description: "Vitamin B12 in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500
+
+          - name: DR1TB12A
+            description: "Added vitamin B12 in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 50
+
+          - name: DR1TVC
+            description: "Vitamin C in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+          
+          - name: DR1TVD
+            description: "Vitamin D (D2 + D3) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+
+          - name: DR1TVK
+            description: "Vitamin K in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
+          - name: DR1TCALC
+            description: "Calcium in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 8000
+
+          - name: DR1TPHOS
+            description: "Phosphorus in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 12000
+
+          - name: DR1TMAGN
+            description: "Magnesium in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 2500
+          
+          - name: DR1TIRON
+            description: "Iron in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 120
+          
+          - name: DR1TZINC
+            description: "Zinc in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 120
+
+          - name: DR1TCOPP
+            description: "Copper in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 75
+
+          - name: DR1TSODI
+            description: "Sodium in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
+          - name: DR1TPOTA
+            description: "Potassium in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
+          - name: DR1TCAFF
+            description: "Caffeine in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+
+          - name: DR1TSELE
+            description: "Selenium in micrograms (µg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1500
+
+          - name: DR1TTHEO
+            description: "Theobromine in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 2000
+          
+          - name: DR1TALCO
+            description: "Alcohol in grams (g)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 800
+
+          - name: DR1_300
+            description: "Compare food consumed yesterday to usual."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 7, 9]
+                  config:
+                    where: "DR1_300 IS NOT NULL"
+
+          - name: DR1_320Z
+            description: "Total plain water drank yesterday - including plain tap water, fountain, cooler, bottled, and spring. In grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 20000
+
+
+      - name: DR2TOT_G
+        description: "NHANES 2011-2012 dietary interview total nutrient intake file for day 2."
+        columns:
+          - name: SEQN
+            description: "Unique respondent sequence number. Primary key for this table and the join key across all NHANES files."
+            tests:
+              - unique
+              - not_null
+
+          - name: DR2DAY
+            description: "Intake day of the week for the dietary interview."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 4, 5, 6, 7]
+                  config:
+                    where: "DR2DAY IS NOT NULL"
+
+          - name: DR2TKCAL
+            description: "Energy in kcal."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 20000
+          
+          - name: DR2TPROT
+            description: "Protein intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500
+
+          - name: DR2TCARB
+            description: "Carbohydrate intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+
+          - name: DR2TSUGR
+            description: "Sugar intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 2000
+
+          - name: DR2TFIBE
+            description: "Dietary fiber intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+
+          - name: DR2TTFAT
+            description: "Total fat intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DR2TSFAT
+            description: "Total Saturated fat intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 400
+          
+          - name: DR2TMFAT
+            description: "Total Monounsaturated fat intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 400
+
+          - name: DR2TPFAT
+            description: "Total Polyunsaturated fat intake in grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 300
+
+          - name: DR2TP182
+            description: "PFA 18:2 (octadecadienoic acid) intake in grams. Omega-6 fatty acid."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+
+          - name: DR2TP205
+            description: "PFA 20:5 (eicosapentaenoic acid) intake in grams. Omega-3 fatty acid, EPA."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3
+
+          - name: DR2TP226
+            description: "PFA 22:6 (docosahexaenoic acid) intake in grams. Omega-3 fatty acid, DHA."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 8
+
+          - name: DR2TCHOL
+            description: "Cholesterol intake in milligrams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+          
+          - name: DR2TATOC
+            description: "Vitamin E as alpha-tocopherol in milligrams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+          
+          - name: DR2TATOA
+            description: "Added alpha-tocopherol (Vitamin E) in milligrams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+          
+          - name: DR2TRET
+            description: "Retinol in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 40000
+
+          - name: DR2TVARA
+            description: "Vitamin A as retinol activity equivalents (RAE) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 40000
+
+          - name: DR2TACAR
+            description: "Alpha-carotene in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100000
+
+          - name: DR2TBCAR
+            description: "Beta-carotene in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 300000
+          
+          - name: DR2TCRYP
+            description: "Beta-cryptoxanthin in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 15000
+          
+          - name: DR2TLYCO
+            description: "Lycopene in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 300000
+
+          - name: DR2TLZ
+            description: "Lutein + zeaxanthin in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200000
+
+          - name: DR2TVB1
+            description: "Thiamin (Vitamin B1) in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 150
+
+          - name: DR2TVB2
+            description: "Riboflavin (Vitamin B2) in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30
+
+          - name: DR2TNIAC
+            description: "Niacin (Vitamin B3) in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 300
+          
+          - name: DR2TVB6
+            description: "Vitamin B6 in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 40
+
+          - name: DR2TFOLA
+            description: "Total folate (Vitamin B9) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+          
+          - name: DR2TFA
+            description: "Folic acid (Vitamin B9) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 4000
+          
+          - name: DR2TFF
+            description: "Food folate (Vitamin B9) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+
+          - name: DR2TFDFE
+            description: "Dietary folate equivalent (Vitamin B9) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+          
+          - name: DR2TCHL
+            description: "Total choline in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+          
+          - name: DR2TVB12
+            description: "Vitamin B12 in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500
+
+          - name: DR2TB12A
+            description: "Added vitamin B12 in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+
+          - name: DR2TVC
+            description: "Vitamin C in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+          
+          - name: DR2TVD
+            description: "Vitamin D (D2 + D3) in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+
+          - name: DR2TVK
+            description: "Vitamin K in micrograms (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
+          - name: DR2TCALC
+            description: "Calcium in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 15000
+
+          - name: DR2TPHOS
+            description: "Phosphorus in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 12000
+
+          - name: DR2TMAGN
+            description: "Magnesium in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 2500
+          
+          - name: DR2TIRON
+            description: "Iron in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 250
+          
+          - name: DR2TZINC
+            description: "Zinc in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 250
+
+          - name: DR2TCOPP
+            description: "Copper in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 75
+
+          - name: DR2TSODI
+            description: "Sodium in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
+          - name: DR2TPOTA
+            description: "Potassium in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
+          - name: DR2TCAFF
+            description: "Caffeine in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+
+          - name: DR2TSELE
+            description: "Selenium in micrograms (µg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1500
+
+          - name: DR2TTHEO
+            description: "Theobromine in milligrams (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 2000
+          
+          - name: DR2TALCO
+            description: "Alcohol in grams (g)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 800
+
+          - name: DR2_300
+            description: "Compare food consumed yesterday to usual."
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 7, 9]
+                  config:
+                    where: "DR2_300 IS NOT NULL"
+
+          - name: DR2_320Z
+            description: "Total plain water drank yesterday - including plain tap water, fountain, cooler, bottled, and spring. In grams."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 20000
+
+      - name: DS1TOT_G
+        description: "NHANES 2011-2012 dietary supplement total nutrient intake file for day 1."
+        columns:
+          - name: SEQN
+            description: "Unique respondent sequence number. Primary key for this table and the join key across all NHANES files."
+            tests:
+              - unique
+              - not_null
+
+      - name: DS2TOT_G
+        description: "NHANES 2011-2012 dietary supplement total nutrient intake file for day 2."
+        columns:
+          - name: SEQN
+            description: "Unique respondent sequence number. Primary key for this table and the join key across all NHANES files."
+            tests:
+              - unique
+              - not_null
 
