@@ -896,6 +896,309 @@ sources:
               - unique
               - not_null
 
+          - name: DR1DRSTZ
+            description: "Dietary recall status for day 1."
+            tests:
+              - not_null
+          
+          - name: DR1DAY
+            description: "Intake day of week for day 1"
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 4, 5, 6, 7]
+                  config:
+                    where: "DR1DAY IS NOT NULL"
+
+          - name: DS1DSCNT
+            description: "Total # of dietary supplements taken, day 1"
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+
+          - name: DS1DS
+            description: "Any dietary supplements taken, day 1?"
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                  config:
+                    where: "DS1DS IS NOT NULL"
+
+          - name: DS1TKCAL
+            description: "Energy (kcal)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 4000
+
+          - name: DS1TPROT
+            description: "Protien (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 400
+          
+          - name: DS1TCARB
+            description: "Carbohydrates (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS1TSUGR
+            description: "Total sugars (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500
+
+          - name: DS1TFIBE
+            description: "Dietary fiber (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+
+          - name: DS1TTFAT
+            description: "Total fat (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+          
+          - name: DS1TSFAT
+            description: "Total saturated fatty acids (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+          
+          - name: DS1TMFAT
+            description: "Total monounsatured fatty acids (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+          
+          - name: DS1TPFAT
+            description: "Total polyunsatured fatty acids (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+
+          - name: DS1TCHOL
+            description: "Cholesterol (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500
+
+          - name: DS1TLYCO
+            description: "Lycopene (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100000
+
+          - name: DS1TLZ
+            description: "Lutein + zeaxanthin (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500000
+
+          - name: DS1TVB1
+            description: "Thiamin (Vitamin B1) (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+
+          - name: DS1TVB2
+            description: "Riboflavin (Vitamin B2) (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS1TNIAC
+            description: "Niacin (Vitamin B3) (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS1TVB6
+            description: "Vitamin B6 (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS1TVB12
+            description: "Vitamin B12 (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 15000
+
+          - name: DS1TFA
+            description: "Folic acid (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 12000
+
+          - name: DS1TFDFE
+            description: "Folate, DFE (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 15000
+
+          - name: DS1TCHL
+            description: "Total choline (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS1TVC
+            description: "Vitamin C (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
+          - name: DS1TVK
+            description: "Vitamin K (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS1TVD
+            description: "Vitamin D (D2 + D3)mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 4000
+
+          - name: DS1TCALC
+            description: "Calcium (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS1TPHOS
+            description: "Phosphorus (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+
+          - name: DS1TMAGN
+            description: "Magnesium (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS1TIRON
+            description: "Iron (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+          
+          - name: DS1TZINC
+            description: "Zinc (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 600
+
+          - name: DS1TCOPP
+            description: "Copper (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+
+          - name: DS1TSODI
+            description: "Sodium (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS1TPOTA
+            description: "Potassium (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+
+          - name: DS1TSELE
+            description: "Selenium (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200000
+
+          - name: DS1TCAFF
+            description: "Caffeine (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS1TIODI
+            description: "Iodine (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
       - name: DS2TOT_G
         description: "NHANES 2011-2012 dietary supplement total nutrient intake file for day 2."
         columns:
@@ -905,3 +1208,305 @@ sources:
               - unique
               - not_null
 
+          - name: DR2DRSTZ
+            description: "Dietary recall status for day 2."
+            tests:
+              - not_null
+          
+          - name: DR2DAY
+            description: "Intake day of week for day 2"
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 4, 5, 6, 7]
+                  config:
+                    where: "DR2DAY IS NOT NULL"
+
+          - name: DS2DSCNT
+            description: "Total # of dietary supplements taken, day 2"
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+
+          - name: DS2DS
+            description: "Any dietary supplements taken, day 2?"
+            tests:
+              - accepted_values:
+                  arguments:
+                    values: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                  config:
+                    where: "DS2DS IS NOT NULL"
+
+          - name: DS2TKCAL
+            description: "Energy (kcal)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 4000
+
+          - name: DS2TPROT
+            description: "Protien (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 400
+          
+          - name: DS2TCARB
+            description: "Carbohydrates (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS2TSUGR
+            description: "Total sugars (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500
+
+          - name: DS2TFIBE
+            description: "Dietary fiber (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+
+          - name: DS2TTFAT
+            description: "Total fat (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200
+          
+          - name: DS2TSFAT
+            description: "Total saturated fatty acids (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+          
+          - name: DS2TMFAT
+            description: "Total monounsatured fatty acids (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+          
+          - name: DS2TPFAT
+            description: "Total polyunsatured fatty acids (gm)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+
+          - name: DS2TCHOL
+            description: "Cholesterol (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500
+
+          - name: DS2TLYCO
+            description: "Lycopene (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100000
+
+          - name: DS2TLZ
+            description: "Lutein + zeaxanthin (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 500000
+
+          - name: DS2TVB1
+            description: "Thiamin (Vitamin B1) (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+
+          - name: DS2TVB2
+            description: "Riboflavin (Vitamin B2) (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS2TNIAC
+            description: "Niacin (Vitamin B3) (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS2TVB6
+            description: "Vitamin B6 (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS2TVB12
+            description: "Vitamin B12 (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 15000
+
+          - name: DS2TFA
+            description: "Folic acid (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 12000
+
+          - name: DS2TFDFE
+            description: "Folate, DFE (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 15000
+
+          - name: DS2TCHL
+            description: "Total choline (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS2TVC
+            description: "Vitamin C (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
+
+          - name: DS2TVK
+            description: "Vitamin K (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS2TVD
+            description: "Vitamin D (D2 + D3)mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 4000
+
+          - name: DS2TCALC
+            description: "Calcium (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS2TPHOS
+            description: "Phosphorus (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 3000
+
+          - name: DS2TMAGN
+            description: "Magnesium (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 10000
+
+          - name: DS2TIRON
+            description: "Iron (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+          
+          - name: DS2TZINC
+            description: "Zinc (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 600
+
+          - name: DS2TCOPP
+            description: "Copper (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 100
+
+          - name: DS2TSODI
+            description: "Sodium (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS2TPOTA
+            description: "Potassium (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 5000
+
+          - name: DS2TSELE
+            description: "Selenium (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 200000
+
+          - name: DS2TCAFF
+            description: "Caffeine (mg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 1000
+
+          - name: DS2TIODI
+            description: "Iodine (mcg)."
+            tests:
+              - value_between:
+                  arguments:
+                    min_value: 0
+                    max_value: 30000
