@@ -1,0 +1,385 @@
+version: 2
+
+models:
+  - name: stg_nutrition
+    description: "Cleaned, standardized, and averaged nutrient intake data, averaging across 2 days of dietary recall from both food and supplement sources, for participants in NHANES 2011-2012 survey."
+
+    columns:
+    - name: respondent_id
+      description: "Unique identifier for each respondent in the NHANES 2011-2012 survey."
+      tests:
+        - unique
+        - not_null
+
+    - name: data_availability
+      description: "Categorical indicator of available data from the two eligible days of dietary recall. Possible values are 'Both days', 'Day 1 only', 'Day 2 only', and 'No data'."
+      tests:
+        - not_null
+        - accepted_values:
+            arguments:
+              values: [
+                'Both days',
+                'Day 1 only',
+                'Day 2 only',
+                'No data'
+              ] 
+
+    - name: tkcal_avg
+      description: "Average total kilocalorie (kcal) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 20000
+    
+    - name: tprot_avg
+      description: "Average total protein (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 500
+
+    - name: tcarb_avg
+      description: "Average total carbohydrate (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 3000
+
+    - name: tfat_avg
+      description: "Average total fat (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 1000
+
+    - name: tsugar_avg
+      description: "Average total sugar (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 2000
+
+    - name: tfiber_avg
+      description: "Average total fiber (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 200
+
+    - name: tsatfat_avg
+      description: "Average total saturated fat (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 400
+
+    - name: tmonofat_avg
+      description: "Average total monounsaturated fat (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 400
+
+    - name: tpolyfat_avg
+      description: "Average total polyunsaturated fat (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 300
+
+    - name: tomega6_avg
+      description: "Average total omega-6 fatty acid (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 200
+
+    - name: tomega3epa_avg
+      description: "Average total omega-3 EPA fatty acid (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 3
+
+    - name: tomega3dha_avg
+      description: "Average total omega-3 DHA fatty acid (gm) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 8
+
+    - name: tchol_avg
+      description: "Average total cholesterol (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 3000
+
+    - name: tvitaminE_avg
+      description: "Average total vitamin E (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 200
+
+    - name: tretinol_avg
+      description: "Average total retinol (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 40000
+
+    - name: tvitaminA_avg
+      description: "Average total vitamin A (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 40000
+
+    - name: talpha_carotene_avg
+      description: "Average total alpha-carotene (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 100000
+
+    - name: tbeta_carotene_avg
+      description: "Average total beta-carotene (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 300000
+
+    - name: tbeta_cryptoxanthin_avg
+      description: "Average total beta-cryptoxanthin (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 15000
+
+    - name: tlycopene_avg
+      description: "Average total lycopene (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 300000
+
+    - name: tlutein_zeaxanthin_avg
+      description: "Average total lutein and zeaxanthin (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 200000
+
+    - name: tvitaminB1_avg
+      description: "Average total vitamin B1 (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 5000
+
+    - name: tvitaminB2_avg
+      description: "Average total vitamin B2 (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 1000
+
+    - name: tvitaminB3_avg
+      description: "Average total vitamin B3 (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 10000
+
+    - name: tvitaminB6_avg
+      description: "Average total vitamin B6 (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 10000
+
+    - name: tfolate_dfe_avg
+      description: "Average total folate (DFE) (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 25000
+
+    - name: tcholine_avg
+      description: "Average total choline (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 3000
+
+    - name: tvitaminB12_avg
+      description: "Average total vitamin B12 (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 16000
+
+    - name: tvitaminC_avg
+      description: "Average total vitamin C (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 30000
+
+    - name: tvitaminD_avg
+      description: "Average total vitamin D (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 4000
+
+    - name: tvitaminK_avg
+      description: "Average total vitamin K (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 40000
+
+    - name: tcalcium_avg
+      description: "Average total calcium (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 10000
+
+    - name: tphosphorus_avg
+      description: "Average total phosphorus (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 12000
+
+    - name: tmagnesium_avg
+      description: "Average total magnesium (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 12500
+
+    - name: tiron_avg
+      description: "Average total iron (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 1250
+
+    - name: tzinc_avg
+      description: "Average total zinc (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 800
+
+    - name: tcopper_avg
+      description: "Average total copper (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 200
+
+    - name: tsodium_avg
+      description: "Average total sodium (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 30000
+
+    - name: tpotassium_avg
+      description: "Average total potassium (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 30000
+
+    - name: tcaffeine_avg
+      description: "Average total caffeine (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 6000
+
+    - name: tselenium_avg
+      description: "Average total selenium (mcg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 200000
+
+    - name: tiodine_avg
+      description: "Average total iodine (mcg) intake across the two days of dietary recall. Iodine data available in supplement form only."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 30000
+
+    - name: ttheobromine_avg
+      description: "Average total theobromine (mg) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 2000
+
+    - name: talcohol_avg
+      description: "Average total alcohol (g) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 800
+
+    - name: twater_avg
+      description: "Average total water (g) intake across the two days of dietary recall."
+      tests:
+        - value_between:
+            arguments:
+              min_value: 0 
+              max_value: 11000
