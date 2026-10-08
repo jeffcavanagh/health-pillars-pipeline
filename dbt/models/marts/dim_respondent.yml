@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: dim_respondent
+    description: "Dimension table for respondents, including demographic information such as age, sex, race/ethnicity, and family income."
+
+    columns:
+      - name: respondent_id
+        description: "Unique respondent identifier from respondent sequence number (SEQN)"
+        tests:
+          - unique
+          - not_null
+
+      - name: survey_year
+        description: "Survey year range categorical variable."
+
+      - name: sex
+        description: "Categorical variable representing the respondent's sex."
+
+      - name: age
+        description: "Respondents age in years, 0 - 80."
+
+      - name: age_group
+        description: "Categorical variable representing the age group of the respondent."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+               values: [
+                  '0-5',
+                  '6-12',
+                  '13-17',
+                  '18-25',
+                  '26-29',
+                  '30-39',
+                  '40-49',
+                  '50-59',
+                  '60-69',
+                  '70-79',
+                  '80+'
+                ]
+
+      - name: is_age_topcoded
+        description: "Indicator if the age is topcoded."
+
+      - name: race_ethnicity
+        description: "Race/ethnicity of the respondent."
+
+      - name: family_income
+        description: "Family income of the respondent."
+
+      - name: income_poverty_ratio
+        description: "Income-to-poverty ratio of the respondent's family."
+
+      - name: is_income_ratio_topcoded
+        description: "Indicator if the income-to-poverty ratio is topcoded."
+
+      - name: family_size
+        description: "Size of the respondent's family."
+        
+      - name: is_family_size_topcoded
+        description: "Indicator if the family size is topcoded."
