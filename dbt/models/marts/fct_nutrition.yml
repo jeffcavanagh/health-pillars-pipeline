@@ -1,0 +1,174 @@
+version: 2
+
+models:
+  - name: fct_nutrition
+    description: "Fact table containing average nutritional intake of each respondent. Averages taken over two day window when 2 days of data are available."
+
+    columns:
+      - name: respondent_id
+        description: "Unique respondent identifier from respondent sequence number (SEQN)"
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_respondent')
+                field: respondent_id
+        
+      - name: data_availability
+        description: "Categorical indicator of available data from the two eligible days of dietary recall. Possible values are 'Both days', 'Day 1 only', 'Day 2 only', and 'No data'."
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [
+                  'Both days',
+                  'Day 1 only',
+                  'Day 2 only',
+                  'No data'
+                ] 
+
+      - name: kcal
+        description: "Average total kilocalorie (kcal) intake across the two days of dietary recall."
+    
+      - name: protein
+        description: "Average total protein (gm) intake across the two days of dietary recall."
+
+      - name: carbs
+        description: "Average total carbohydrate (gm) intake across the two days of dietary recall."
+
+      - name: fat
+        description: "Average total fat (gm) intake across the two days of dietary recall."
+
+      - name: sugar
+        description: "Average total sugar (gm) intake across the two days of dietary recall."
+
+      - name: fiber
+        description: "Average total fiber (gm) intake across the two days of dietary recall."
+
+      - name: fat_saturated
+        description: "Average total saturated fat (gm) intake across the two days of dietary recall."
+
+      - name: fat_monounsaturated
+        description: "Average total monounsaturated fat (gm) intake across the two days of dietary recall."
+
+      - name: fat_polyunsaturated
+        description: "Average total polyunsaturated fat (gm) intake across the two days of dietary recall."
+
+      - name: omega6
+        description: "Average total omega-6 fatty acid (gm) intake across the two days of dietary recall."
+
+      - name: omega3_epa
+        description: "Average total omega-3 EPA fatty acid (gm) intake across the two days of dietary recall."
+
+      - name: omega3_dha
+        description: "Average total omega-3 DHA fatty acid (gm) intake across the two days of dietary recall."
+
+      - name: omega6_to_omega3_ratio
+        description: "Ratio of omega-6 to omega-3 fatty acids. Calculated as omega-6 divided by omega-3 intake. Values NULL if omega-3 intake is zero. Computed ratios can still take extremely large value when omega-3 intake virtually 0."
+        tests:
+          - value_between:
+              arguments:
+                min_value: 0
+                max_value: 1000000000
+        
+      - name: cholesterol
+        description: "Average total cholesterol (mg) intake across the two days of dietary recall."
+
+      - name: vitamin_e
+        description: "Average total vitamin E (mg) intake across the two days of dietary recall."
+
+      - name: retinol
+        description: "Average total retinol (mcg) intake across the two days of dietary recall."
+
+      - name: vitamin_a
+        description: "Average total vitamin A (mcg) intake across the two days of dietary recall."
+
+      - name: vitamin_b1
+        description: "Average total vitamin B1 (mg) intake across the two days of dietary recall."
+
+      - name: vitamin_b2
+        description: "Average total vitamin B2 (mg) intake across the two days of dietary recall."
+
+      - name: vitamin_b3
+        description: "Average total vitamin B3 (mg) intake across the two days of dietary recall."
+
+      - name: vitamin_b6
+        description: "Average total vitamin B6 (mg) intake across the two days of dietary recall."
+
+      - name: folate_dfe
+        description: "Average total folate (DFE) (mcg) intake across the two days of dietary recall."
+
+      - name: choline
+        description: "Average total choline (mg) intake across the two days of dietary recall."
+
+      - name: vitamin_b12
+        description: "Average total vitamin B12 (mcg) intake across the two days of dietary recall."
+
+      - name: vitamin_c
+        description: "Average total vitamin C (mg) intake across the two days of dietary recall."
+
+      - name: vitamin_d
+        description: "Average total vitamin D (mcg) intake across the two days of dietary recall."
+
+      - name: vitamin_k
+        description: "Average total vitamin K (mg) intake across the two days of dietary recall."
+
+      - name: calcium
+        description: "Average total calcium (mg) intake across the two days of dietary recall."
+
+      - name: phosphorus
+        description: "Average total phosphorus (mg) intake across the two days of dietary recall."
+
+      - name: magnesium
+        description: "Average total magnesium (mg) intake across the two days of dietary recall."
+
+      - name: iron
+        description: "Average total iron (mg) intake across the two days of dietary recall."
+
+      - name: zinc
+        description: "Average total zinc (mg) intake across the two days of dietary recall."
+
+      - name: copper
+        description: "Average total copper (mg) intake across the two days of dietary recall."
+
+      - name: sodium
+        description: "Average total sodium (mg) intake across the two days of dietary recall."
+
+      - name: potassium
+        description: "Average total potassium (mg) intake across the two days of dietary recall."
+
+      - name: caffeine
+        description: "Average total caffeine (mg) intake across the two days of dietary recall."
+
+      - name: selenium
+        description: "Average total selenium (mcg) intake across the two days of dietary recall."
+
+      - name: iodine
+        description: "Average total iodine (mcg) intake across the two days of dietary recall. Iodine data available in supplement form only."
+
+      - name: theobromine
+        description: "Average total theobromine (mg) intake across the two days of dietary recall."
+
+      - name: alpha_carotene
+        description: "Average total alpha-carotene (mcg) intake across the two days of dietary recall."
+
+      - name: beta_carotene
+        description: "Average total beta-carotene (mcg) intake across the two days of dietary recall."
+
+      - name: beta_cryptoxanthin
+        description: "Average total beta-cryptoxanthin (mcg) intake across the two days of dietary recall."
+
+      - name: lycopene
+        description: "Average total lycopene (mcg) intake across the two days of dietary recall."
+
+      - name: lutein_zeaxanthin
+        description: "Average total lutein and zeaxanthin (mcg) intake across the two days of dietary recall."
+
+      - name: alcohol
+        description: "Average total alcohol (g) intake across the two days of dietary recall."
+
+      - name: water
+        description: "Average total water (g) intake across the two days of dietary recall."
+
+      

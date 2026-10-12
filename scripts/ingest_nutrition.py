@@ -37,6 +37,9 @@ def ingest_file(file_name: str, url: str, conn) -> None:
     df = pd.read_sas(local_path, format = "xport", encoding = "utf-8")
     print(f"{file_name}: {df.shape[0]} rows, {df.shape[1]} columns")
 
+    num_cols = df.select_dtypes("number").columns
+    df[num_cols] = df[num_cols].mask(df[num_cols].abs() < 1e-30, 0)
+
     success, nchunks, nrows, _ = write_pandas(
         conn, df, file_name, auto_create_table = True, overwrite = True
     )

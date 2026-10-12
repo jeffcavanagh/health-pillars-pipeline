@@ -11,6 +11,9 @@ df = pd.read_sas("data/raw/DEMO_G.xpt", format="xport", encoding="utf-8")
 print(df.shape)
 print(df.head())
 
+num_cols = df.select_dtypes("number").columns
+df[num_cols] = df[num_cols].mask(df[num_cols].abs() < 1e-30, 0)
+
 # create snowflake connection
 conn = snowflake.connector.connect(
     account=os.environ["SNOWFLAKE_ACCOUNT"],
