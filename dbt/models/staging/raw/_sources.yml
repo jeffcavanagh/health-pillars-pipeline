@@ -5,6 +5,9 @@ sources:
     database: HEALTH_PILLARS
     schema: RAW
     description: "Raw NHANES data loaded directly from source XPT files, before any transformation."
+    config:
+      freshness:
+        warn_after: {count: 180, period: day}
     tables:
       - name: DEMO_G
         description: "NHANES 2011-2012 demographics file. One row per respondent (SEQN) providing individual, family, and household variables."
