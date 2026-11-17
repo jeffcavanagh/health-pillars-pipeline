@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_food_day2
+    description: "Day 2 total nutrient intakes from foods and beverages for NHANES 2011-2012 respondents. One row per respondent. Columns are renamed from the raw DR2TOT_G file."
+
+    columns:
+      - name: respondent_id
+        description: "Unique respondent identifier from respondent sequence number (SEQN)."
+        tests:
+          - unique
+          - not_null
+
+      - name: has_reliable_data
+        description: "True when the day 2 dietary recall status code (DR2DRSTZ) is 1, meaning the recall was reliable and complete."
+        tests:
+          - not_null

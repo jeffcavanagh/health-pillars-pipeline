@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_supplements_day1
+    description: "Day 1 total nutrient intakes from dietary supplements for NHANES 2011-2012 respondents. One row per respondent who reported supplement use. Columns are renamed from the raw DS1TOT_G file."
+
+    columns:
+      - name: respondent_id
+        description: "Unique respondent identifier from respondent sequence number (SEQN)."
+        tests:
+          - unique
+          - not_null

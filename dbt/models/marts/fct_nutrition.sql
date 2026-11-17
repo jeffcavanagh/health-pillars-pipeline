@@ -47,4 +47,4 @@ SELECT
     tlutein_zeaxanthin_avg as lutein_zeaxanthin,
     talcohol_avg as alcohol,
     twater_avg as water
-FROM {{ ref('stg_nutrition') }}
+FROM {{ ref('int_nutrition_combined') }}

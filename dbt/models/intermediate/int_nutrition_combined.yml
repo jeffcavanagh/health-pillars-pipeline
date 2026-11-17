@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: stg_nutrition
-    description: "Cleaned, standardized, and averaged nutrient intake data, averaging across 2 days of dietary recall from both food and supplement sources, for participants in NHANES 2011-2012 survey."
+  - name: int_nutrition_combined
+    description: "Nutrient intake for NHANES 2011-2012 respondents. Combines food and supplement sources for each of the 2 days of dietary recall, then averages across the two days. One row per respondent."
 
     columns:
     - name: respondent_id
